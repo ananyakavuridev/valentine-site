@@ -1,0 +1,272 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    margin:0;
+    background-color: lightpink;
+
+    margin: 0;
+    overflow: hidden;
+}
+.center-screen {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 18px;
+    margin:15px;
+    cursor:pointer;
+}
+h1 {
+    font-size: 80px;
+    font-weight: bold;
+    color: white;
+    text-shadow: 
+        4px 4px 0px hotpink,
+        8px 8px 0px deeppink;
+}
+@keyframes pop {
+    0% {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+h1 {
+    animation: pop 0.6s ease-out;
+}
+
+img {
+    animation: pop 0.6s ease-out;
+}
+
+.flash {
+    animation: flashBg 0.3s infinite;
+}
+
+@keyframes flashBg {
+    0%   { background-color: red; }
+    25%  { background-color: yellow; }
+    50%  { background-color: lime; }
+    75%  { background-color: cyan; }
+    100% { background-color: red; }
+}
+
+#nextArrow {
+    position: fixed;
+    right: 10px;
+    bottom: 60px;
+    font-size: 30px;
+    padding: 10px 15px;
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+.glitch-wrapper {
+    position: relative;
+    width: 300px;   /* 40% of screen width */
+    max-width: 400px;
+    display: inline-block;
+}
+.glitch-wrapper img {
+    width: 300px;
+    position: relative;
+}
+.main-img {
+    width: 100%;
+    display: block;
+    position: relative;
+    z-index: 2;
+}
+
+.glitch-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.6;
+    height: 100%;
+    object-fit: cover;
+
+}
+
+
+.left-glitch {
+    animation: moveLeft 0.5s infinite alternate;
+}
+
+@keyframes moveLeft {
+    from { transform: translateX(-450px); }
+    to   { transform: translateX(450px); }
+}
+.right-glitch {
+    animation: moveRight 0.5s infinite alternate;
+}
+
+@keyframes moveRight {
+    from { transform: translateX(450px); }
+    to   { transform: translateX(-450px); }
+}
+.left-glitch {
+    filter: drop-shadow(-5px 0 red);
+}
+
+.right-glitch {
+    filter: drop-shadow(5px 0 blue);
+}
+
+
+/*sorry ka part */
+body {
+    background-color: lightpink;
+    margin: 0;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+.message-box {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+h1 {
+    font-size: 60px;
+    transition: opacity 1s ease;
+}
+
+.fade-out {
+    opacity: 0;
+}
+
+.fade-in {
+    opacity: 1;
+}
+
+img.cute {
+    width: 150px;
+    margin: 10px;
+    border-radius: 20px;
+}
+
+/* Image styling */
+img.cute {
+    width: 250px;   /* bigger */
+    max-width: 80vw;  /* prevents overflow on small screens */
+    margin: 20px;
+    border-radius: 30px;
+    opacity: 0;
+    transform: scale(0.8);
+    animation: popIn 1.2s forwards;
+    box-shadow: 0 0 25px rgba(255, 182, 193, 0.8);
+
+}
+
+
+/* Stagger animation */
+img.cute:nth-child(1) { animation-delay: 0.3s; }
+img.cute:nth-child(2) { animation-delay: 0.6s; }
+img.cute:nth-child(3) { animation-delay: 0.9s; }
+
+@keyframes popIn {
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Floating motion */
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* Floating hearts */
+.heart {
+    position: absolute;
+    font-size: 25px;
+    animation: rise 4s linear infinite;
+}
+
+@keyframes rise {
+    0% {
+        bottom: -20px;
+        opacity: 1;
+        transform: translateX(0);
+    }
+    100% {
+        bottom: 100%;
+        opacity: 0;
+        transform: translateX(30px);
+    }
+}
+
+#nextBtn {
+    position: fixed;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 15px 25px;
+    font-size: 18px;
+    border-radius: 30px;
+    border: none;
+    background-color: hotpink;
+    color: white;
+    cursor: pointer;
+    display: none;
+    box-shadow: 0 0 20px rgba(255, 105, 180, 0.7);
+}
+
+.love-text {
+    font-size: 70px;
+    color: white;
+    text-shadow: 0 0 20px hotpink;
+    animation: popText 1.5s forwards;
+}
+
+@keyframes popText {
+    0% { opacity: 0; transform: scale(0.5); }
+    60% { opacity: 1; transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+.fade-out {
+    animation: fadeOut 1s forwards;
+}
+
+@keyframes fadeOut {
+    to { opacity: 0; }
+}
+
+.second-text {
+    font-size: 50px;
+    color: white;
+    margin-top: 20px;
+    animation: popText 1s forwards;
+}
+
+button {
+    margin-top: 20px;
+    padding: 12px 25px;
+    font-size: 18px;
+    border-radius: 30px;
+    border: none;
+    background: hotpink;
+    color: white;
+    cursor: pointer;
+}
